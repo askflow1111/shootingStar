@@ -8,9 +8,53 @@ var carPosX = 170;
 var carPosY = 390;
 
 var speed = 3;
+var stars = [];
+
 
 function setup (){
   createCanvas(650, 400);
+  
+     for (var i = 0; i < 1; i++) { // loops thru array to creat loop of stars for sky 
+    stars[i] = {
+      x: random(0, width),
+      y: random(0, height),
+      display: function() {  
+        
+        noFill();
+          strokeWeight(2);
+          var a = random(-3, 3); //randomizes star position based on position x n y here named as a n b
+          var b = random(-3, 3);
+          point(250 + a, 167 + b);
+            point(199 + a, 167 + b); //star
+            point(218 + a, 132 + b); //star
+            point(241 + a, 132 + b); //star
+            point(222 + a, 92 + b); //star
+            point(157 + a, 132 + b); //star
+            point(142 + a, 92 + b); //star
+            point(110 + a, 132 + b); //star
+            point(167 + a, 105 + b); //star
+            point(80 + a, 61 + b); //star
+            point(94 + a, 175 + b); //star
+          
+             point(399 + a, 167 + b); //star
+            point(418 + a, 132 + b); //star
+            point(441 + a, 132 + b); //star
+            point(422 + a, 92 + b); //star
+            point(357 + a, 132 + b); //star
+            point(342 + a, 92 + b); //star
+            point(310 + a, 132 + b); //star
+            point(367 + a, 105 + b); //star
+            point(280 + a, 61 + b); //star
+            point(294 + a, 175 + b); //star
+       
+      },
+      move: function() {
+        this.x = this.x + random(-30, 3); 
+        this.y = this.y + random(-30, 3);
+      }
+    }
+  }
+  
 }
 
 function draw() {
@@ -23,7 +67,6 @@ function draw() {
     ellipse(xPos, yPos, 10, 10);//starShape
     xPos+=3;
     yPos+=1;
-    
     
     //Ballon
     fill(255, 0, 0);//cabinFill
@@ -45,20 +88,15 @@ function draw() {
     fill(245, 242, 242);
     point(350, 100); //moonPos
     
-    //stars
-    stroke(250, 226, 10);
-    strokeWeight(2);
-    point(250, 167); //star1
-    point(199, 167); //star2
-    point(218, 132); //star3
-    point(241, 132); //star
-    point(222, 92); //star
-    point(157, 132); //star
-    point(142, 92); //star
-    point(110, 132); //star
-    point(167, 105); //star
-    point(80, 61); //star
-    point(94, 175); //star
+    
+    for (var i = 0; i < stars.length; i++) {
+  	console.log(stars[i].move()); 
+  	console.log(stars[i].display());
+  	console.log("hmmm...");
+  	
+    // stars[i].move();
+    // stars[i].display();
+  }
     
    
     //mountain
