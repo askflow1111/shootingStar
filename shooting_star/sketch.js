@@ -4,7 +4,7 @@ var yPos = 50;
 var balPosX = 1;
 var balPosY = 22;
 
-var carPosX = 170;
+var carPosX = 0;
 var carPosY = 390;
 
 var speed = 3;
@@ -231,6 +231,16 @@ function draw() {
     
     
     
-    carPosX-=1;
+     if (this.y > width)  {
+        carPosX=-5;
+    }
+  else if (carPosX < 0){
+    carPosX=5;
+  }
+  
+    carPosX = carPosX + speed;
+    
+    
+    
     
 };
